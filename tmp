@@ -1,0 +1,25 @@
+[nixos@nixos:~/nixos]$ sudo nix --extra-experimental-features "nix-command flakes" run 'github:nix-community/disko/latest#disko-install' -- --flake .#nixos --disk main /dev/nvme0n1
+error: Cannot build '/nix/store/hvxxm22ddlig6lvn8pifxa7kpb67acq6-builder.pl.drv'.
+       Reason: builder failed with exit code 1.
+       Output paths:
+         /nix/store/119wcss8hpblzq13acpgivaiy5vg3hv8-builder.pl
+       Last 1 log lines:
+       > /nix/store/wx5ivjgmzwl9222fpdy5h0c1ysa9cldn-stdenv-linux/setup: line 847: /nix/store/cv1d7p48379km6a85h4zp6kr86brh32q-audit-tmpdir.sh: Input/output error
+       For full logs, run:
+         nix log /nix/store/hvxxm22ddlig6lvn8pifxa7kpb67acq6-builder.pl.drv
+error: Cannot build '/nix/store/drrd5mls4ayxm2bskswgrynwbhd3ir6x-nixos-enter.drv'.
+       Reason: builder failed with exit code 1.
+       Output paths:
+         /nix/store/hc5znjhajzivvlf36ml5cas9h5bmwg17-nixos-enter
+       Last 1 log lines:
+       > /nix/store/wx5ivjgmzwl9222fpdy5h0c1ysa9cldn-stdenv-linux/setup: line 847: /nix/store/cv1d7p48379km6a85h4zp6kr86brh32q-audit-tmpdir.sh: Input/output error
+       For full logs, run:
+         nix log /nix/store/drrd5mls4ayxm2bskswgrynwbhd3ir6x-nixos-enter.drv
+error: Cannot build '/nix/store/ld55yzm7gs4xbj8ijmpgw7zf2fzw5jlg-nixos-install-tools-26.05pre-git.drv'.
+       Reason: 1 dependency failed.
+       Output paths:
+         /nix/store/zx12wb7fy4327x0gpyjl2ggm049sibk7-nixos-install-tools-26.05pre-git
+error: Cannot build '/nix/store/9cyflp99qfn2m11s8s0zlqfnpawz0a6f-disko-install.drv'.
+       Reason: 1 dependency failed.
+       Output paths:
+         /nix/store/yr9ir289bbss9cil9jx1jl4c6943clnf-disko-install
