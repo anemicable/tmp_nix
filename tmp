@@ -1,25 +1,23 @@
-[nixos@nixos:~/nixos]$ sudo nix --extra-experimental-features "nix-command flakes" run 'github:nix-community/disko/latest#disko-install' -- --flake .#nixos --disk main /dev/nvme0n1
-error: Cannot build '/nix/store/hvxxm22ddlig6lvn8pifxa7kpb67acq6-builder.pl.drv'.
-       Reason: builder failed with exit code 1.
-       Output paths:
-         /nix/store/119wcss8hpblzq13acpgivaiy5vg3hv8-builder.pl
-       Last 1 log lines:
-       > /nix/store/wx5ivjgmzwl9222fpdy5h0c1ysa9cldn-stdenv-linux/setup: line 847: /nix/store/cv1d7p48379km6a85h4zp6kr86brh32q-audit-tmpdir.sh: Input/output error
-       For full logs, run:
-         nix log /nix/store/hvxxm22ddlig6lvn8pifxa7kpb67acq6-builder.pl.drv
-error: Cannot build '/nix/store/drrd5mls4ayxm2bskswgrynwbhd3ir6x-nixos-enter.drv'.
-       Reason: builder failed with exit code 1.
-       Output paths:
-         /nix/store/hc5znjhajzivvlf36ml5cas9h5bmwg17-nixos-enter
-       Last 1 log lines:
-       > /nix/store/wx5ivjgmzwl9222fpdy5h0c1ysa9cldn-stdenv-linux/setup: line 847: /nix/store/cv1d7p48379km6a85h4zp6kr86brh32q-audit-tmpdir.sh: Input/output error
-       For full logs, run:
-         nix log /nix/store/drrd5mls4ayxm2bskswgrynwbhd3ir6x-nixos-enter.drv
-error: Cannot build '/nix/store/ld55yzm7gs4xbj8ijmpgw7zf2fzw5jlg-nixos-install-tools-26.05pre-git.drv'.
-       Reason: 1 dependency failed.
-       Output paths:
-         /nix/store/zx12wb7fy4327x0gpyjl2ggm049sibk7-nixos-install-tools-26.05pre-git
-error: Cannot build '/nix/store/9cyflp99qfn2m11s8s0zlqfnpawz0a6f-disko-install.drv'.
-       Reason: 1 dependency failed.
-       Output paths:
-         /nix/store/yr9ir289bbss9cil9jx1jl4c6943clnf-disko-install
+
+[nixos@nixos:~/nixos-config]$ sudo nixos-install --flake .#nixos
+copying channel...
+building the flake in path:/home/nixos/nixos-config?lastModified=1787569305&narHash=sha256-7ooOMfcZh0eQQJycUfNeGrQP7xs%2BBpVVRd9Dnq/1gDs%3D...
+installing the boot loader...
+setting up /etc...
+Not checking switch inhibitors (action = boot)
+efiSysMountPoint = '/boot' is not a mounted partition. Is the path configured correctly?
+Traceback (most recent call last):
+  File "/nix/store/ln0pzvjxh28dv38cnjcdxiimm31472rm-systemd-boot/bin/systemd-boot", line 688, in <module>
+    main()
+    ~~~~^^
+  File "/nix/store/ln0pzvjxh28dv38cnjcdxiimm31472rm-systemd-boot/bin/systemd-boot", line 663, in main
+    run([CHECK_MOUNTPOINTS])
+    ~~~^^^^^^^^^^^^^^^^^^^^^
+  File "/nix/store/ln0pzvjxh28dv38cnjcdxiimm31472rm-systemd-boot/bin/systemd-boot", line 243, in run
+    return subprocess.run(cmd, check=True, text=True, stdout=stdout, stderr=sys.stderr)
+           ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/nix/store/3n4qphl9s728sz8frmpqqrv9b1m87g68-python3-3.14.7/lib/python3.14/subprocess.py", line 578, in run
+    raise CalledProcessError(retcode, process.args,
+                             output=stdout, stderr=stderr)
+subprocess.CalledProcessError: Command '['/nix/store/vi62dg3la1l8p6d15zhzgpmvkw8rvicn-check-mountpoints']' returned non-zero exit status 1.
+Failed to install bootloader
