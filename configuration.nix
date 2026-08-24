@@ -59,7 +59,7 @@
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.alice = {
-     initialPassword = "12345"
+     initialPassword = "12345";
      isNormalUser = true;
      extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
      packages = with pkgs; [
